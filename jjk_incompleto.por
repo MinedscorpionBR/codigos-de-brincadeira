@@ -13,13 +13,17 @@ programa
         cadeia expansao
         cadeia reversao
 
-        inteiro forca = 0
-        inteiro velocidade = 0
-        inteiro resistencia = 0
-        inteiro jujutsu = 0
-        inteiro energia = 0
+        inteiro forca = 1
+        inteiro velocidade = 1
+        inteiro resistencia = 1
+        inteiro jujutsu = 1
+        inteiro energia = 1
         inteiro gastoEnergia = 10
         inteiro bonusFinal = 0
+        inteiro quantidadetecnicas
+        inteiro i
+        inteiro tecnicaRoubada
+        inteiro quantidadeItens
 
         escreva("=== SIMULADOR JUJUTSU KAISEN ===\n\n")
 
@@ -41,41 +45,47 @@ programa
         {
             escreva("\nVocê entrou na escola de Kyoto,pessima escolha ☠️\n")
 
-            forca -= 5
-            velocidade -= 5
-            resistencia -= 5
-            jujutsu -= 5
+            forca -= 500
+            velocidade -= 500
+            resistencia -= 500
+            jujutsu -= 500
         }
 
         // TIPO
-        inteiro sorteTipo = u.sorteia(1,3)
+        inteiro sorteTipo = u.sorteia(1,4)
 
         escolha(sorteTipo)
         {
             caso 1:
                 tipo = "Feiticeiro"
-                forca += 10
-                velocidade += 5
+                forca += 100
+                velocidade += 25
                 resistencia += 10
-                jujutsu -= 5
+                jujutsu -= 500
                 pare
 
             caso 2:
                 tipo = "Maldição"
 
-                jujutsu += 20
-                forca -= 10
-                velocidade -= 10
-                resistencia -= 10
+                jujutsu += 2000
+                forca -= 100
+                velocidade -= 250
+                resistencia -= 100
                 pare
 
             caso 3:
-                tipo = "Mescla"
+                tipo = "híbrido"
 
-                jujutsu += 10
-                forca -=20
-                velocidade += 10
-                resistencia +=10
+                jujutsu += 100
+                forca -=200
+                velocidade += 50
+                resistencia +=100
+                pare
+                 caso 4:
+                tipo = "simuriano"
+
+                jujutsu += 100
+                resistencia +=100
                 pare
         }
 
@@ -86,10 +96,10 @@ programa
         {
             caso 1:
                 nivelEnergia = "Toji"
-                energia = 0
-                forca += 60
+                energia = energia * 0
+                forca += 600
                 velocidade += 60
-                resistencia += 40
+                resistencia += 400
                 pare
 
             caso 2:
@@ -1132,17 +1142,14 @@ programa
                 tecnica = "Transplante de cerebro"
                 jujutsu += 1000
 
-                inteiro quantidadetecnicas
                 quantidadeTecnicas = u.sorteia(0,44)
 
                escreva("\nKVocê andou por ", quantidadetecnicas, " corpos! você terá as tecnicas deles\n")
 
-                inteiro i
 
-                para(i = 1; i <= quantidadetecnicas; i++)
+                para(i = 1 ; i <= quantidadetecnicas; i++)
                 {
-                inteiro tecnicaRoubada
-                tecnicaRoubada = u.sorteia(1,5)
+                tecnicaRoubada = u.sorteia(1,44)
 
                escolha(tecnicaRoubada)
                {
@@ -2129,52 +2136,90 @@ programa
                 }
                 }
                 pare
-                
-                
+               }
+                }
             
         }
-
-        // ITEM
-        inteiro sorteItem = u.sorteia(1,6)
-
+        quantidadeItens = u.sorteia(1,13)
+       para(i = 1; i <= quantidadeItens; i++)
+{
+        inteiro sorteItem = u.sorteia(1,13)
         escolha(sorteItem)
         {
             caso 1:
-                item = "6 Olhos"
+                item += " 6 Olhos"
 
                 gastoEnergia = gastoEnergia * 0.1
-                jujutsu += 40
+                jujutsu += 400
                 pare
 
             caso 2:
-                item = "Lança Invertida do Céu"
+                item += " Lança Invertida do Céu"
 
-                forca += 25
+                forca += 250
                 pare
 
             caso 3:
-                item = "Dedo do Sukuna"
+                item += " Dedo do Sukuna"
 
                 energia += 100
-                jujutsu += 20
+                jujutsu += 200
+                forca +=400
+                resistencia +=400
                 pare
 
             caso 4:
-                item = "Corda Negra"
+                item += " Corda Negra"
 
                 velocidade += 20
+                forca +=300
                 pare
 
             caso 5:
-                item = "Nenhum"
+                item += " Nenhum"
                 pare
             caso 6:
-                item = "Cutelo"
+                item += " Cutelo"
+                forca += 300
+                velocidade -=100
                 pare
-                 caso 7:
-                item = "Nuvem Brincalhona"
+                caso 7:
+                item += " Nuvem Brincalhona"
                 forca +=600
                 pare
+                caso 8:
+                item += " Reino da prisão"
+                jujutsu +=600
+                pare
+                caso 9:
+                item += " Demonio da matança"
+                jujutsu +=600
+                forca +=300
+                pare
+                caso 10:
+                item += " Katana divididora de almas"
+                jujutsu +=900
+                forca +=300
+                pare
+                caso 11:
+                item += " Espada do exterminio"
+                jujutsu +=1000
+                forca +=500
+                pare
+                caso 12:
+                item += " Kamutoke"
+                jujutsu +=1000
+                forca +=500
+                pare
+                caso 13:
+                item += " Anel da Rika"
+                
+                gastoEnergia = gastoEnergia * 0
+                forca +=500
+                resistencia +=200
+                energia +=500
+                pare
+        }
         }
 
         // EXPANSÃO
@@ -2204,6 +2249,7 @@ programa
 
             bonusFinal += 150
             resistencia += 20
+            gastoEnergia = gastoEnergia * 2
         }
         senao
         {
