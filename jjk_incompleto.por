@@ -12,6 +12,7 @@ programa
         cadeia nivelEnergia
         cadeia expansao
         cadeia reversao
+        cadeia resultado = ""
 
         inteiro forca = 1
         inteiro velocidade = 1
@@ -24,6 +25,7 @@ programa
         inteiro i
         inteiro tecnicaRoubada
         inteiro quantidadeItens
+        inteiro poderTotal
 
         escreva("=== SIMULADOR JUJUTSU KAISEN ===\n\n")
 
@@ -2147,20 +2149,20 @@ programa
         escolha(sorteItem)
         {
             caso 1:
-                item += " 6 Olhos"
+                item += " 6 Olhos;"
 
                 gastoEnergia = gastoEnergia * 0.1
                 jujutsu += 400
                 pare
 
             caso 2:
-                item += " Lança Invertida do Céu"
+                item += " Lança Invertida do Céu;"
 
                 forca += 250
                 pare
 
             caso 3:
-                item += " Dedo do Sukuna"
+                item += "Dedo do Sukuna;"
 
                 energia += 100
                 jujutsu += 200
@@ -2169,50 +2171,50 @@ programa
                 pare
 
             caso 4:
-                item += " Corda Negra"
+                item += "Corda Negra;"
 
                 velocidade += 20
                 forca +=300
                 pare
 
             caso 5:
-                item += " Nenhum"
+                item += " Nenhum;"
                 pare
             caso 6:
-                item += " Cutelo"
+                item += " Cutelo;"
                 forca += 300
                 velocidade -=100
                 pare
                 caso 7:
-                item += " Nuvem Brincalhona"
+                item += "Nuvem Brincalhona;"
                 forca +=600
                 pare
                 caso 8:
-                item += " Reino da prisão"
+                item += "Reino da prisão;"
                 jujutsu +=600
                 pare
                 caso 9:
-                item += " Demonio da matança"
+                item += " Demonio da matança;"
                 jujutsu +=600
                 forca +=300
                 pare
                 caso 10:
-                item += " Katana divididora de almas"
+                item += "Katana divididora de almas;"
                 jujutsu +=900
                 forca +=300
                 pare
                 caso 11:
-                item += " Espada do exterminio"
+                item += "Espada do exterminio;"
                 jujutsu +=1000
                 forca +=500
                 pare
                 caso 12:
-                item += " Kamutoke"
+                item += "Kamutoke;"
                 jujutsu +=1000
                 forca +=500
                 pare
                 caso 13:
-                item += " Anel da Rika"
+                item += " Anel da Rika;"
                 
                 gastoEnergia = gastoEnergia * 0
                 forca +=500
@@ -2258,39 +2260,174 @@ programa
              bonusFinal -= 150
             resistencia -= 20
         }
+                poderTotal = forca +
+                     velocidade +
+                     resistencia +
+                     jujutsu +
+                     energia +
+                     -gastoEnergia +
+                     bonusFinal
 
         // INIMIGO
-        inteiro sorteInimigo = u.sorteia(1,7)
+        inteiro sorteInimigo = u.sorteia(1,17)
 
         escolha(sorteInimigo)
         {
             caso 1:
                 inimigo = "Mahito"
+                 se (poderTotal >= 5000){
+                 resultado = "ganhou"
+                }
+                senao {
+                  resultado = "perdeu"
+                }
                 pare
 
             caso 2:
                 inimigo = "Jogo"
+                 se (poderTotal >= 9000){
+                  resultado = "ganhou"
+                }
+                senao {
+                  resultado = "perdeu"
+                }
                 pare
 
             caso 3:
                 inimigo = "Toji"
+                se (poderTotal >= 9000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
                 pare
 
             caso 4:
                 inimigo = "Sukuna"
+                se (poderTotal >= 10000){
+                  resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
                 pare
 
             caso 5:
                 inimigo = "Geto"
+                se (poderTotal >= 9000){
+                  resultado = "ganhou"
+                }
+                senao {
+                 resultado = "perdeu"
+                }
                 pare
 
             caso 6:
-                inimigo = "Gojo Corrompido"
+                inimigo = "Gojo"
+                se (poderTotal >= 10000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
                 pare
 
             caso 7:
                 inimigo = "Kenjaku"
+                 se (poderTotal >= 9000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
                 pare
+                 caso 8:
+                inimigo = "Yuji prime"
+                 se (poderTotal >= 11000){
+                 resultado = "ganhou"
+                }
+                senao {
+                  resultado = "perdeu"
+                }
+                pare
+                 caso 9:
+                inimigo = "Yuta prime"
+                 se (poderTotal >= 11000){
+                 resultado = "ganhou"
+                }
+                senao {
+                  resultado = "perdeu"
+                }
+                pare
+                 caso 10:
+                inimigo = "Dabura"
+                 se (poderTotal >= 10000){
+                 resultado = "ganhou"
+                }
+                senao {
+                 resultado = "perdeu"
+                }
+                pare
+                 caso 11:
+                inimigo = "Mahoraga"
+                 se (poderTotal >= 10000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
+                pare
+                caso 12:
+                inimigo = "Nanami"
+                 se (poderTotal >= 6000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
+                pare
+                 caso 13:
+                inimigo = "Noritoshi Kamo/Kenjaku"
+                 se (poderTotal >= 5000){
+                resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
+                pare
+                  caso 14:
+                inimigo = "Yuki"
+                 se (poderTotal >= 10000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
+                  caso 15:
+                inimigo = "Chooso"
+                 se (poderTotal >= 9000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
+                  caso 16:
+                inimigo = "miwa"
+                 se (poderTotal >= 4000){
+                 resultado = "ganhou"
+                }
+                senao {
+                  resultado = "perdeu"
+                }
+                  caso 17:
+                inimigo = "John Kaisen"
+                 se (poderTotal >= 5000000000){
+                 resultado = "ganhou"
+                }
+                senao {
+                   resultado = "perdeu"
+                }
         }
 
         // RESULTADO
@@ -2314,44 +2451,38 @@ programa
         escreva("Resistência: ", resistencia, "\n")
         escreva("Jujutsu: ", jujutsu, "\n")
 
-        // PODER FINAL
-        inteiro poderTotal
 
-        poderTotal = forca +
-                     velocidade +
-                     resistencia +
-                     jujutsu +
-                     energia +
-                     -gastoEnergia +
-                     bonusFinal
+
 
         escreva("\n===== BATALHA =====\n")
 
         escreva("Seu inimigo será: ", inimigo, " ⚔️\n")
 
+         escreva("\nContra ele, você: ", resultado, "\n")
+
         escreva("\nSeu poder total é: ", poderTotal, "\n")
 
-        se(poderTotal >= 2500)
+        se(poderTotal >= 9000)
         {
             escreva("grau especiau 💀\n")
         }
-        senao se(poderTotal >= 2000)
+        senao se(poderTotal >= 7000)
         {
             escreva("é de nivel semi especial 😈\n")
         }
-        senao se(poderTotal >= 1500)
+        senao se(poderTotal >= 6000)
         {
             escreva("Você é Grau um 🔥\n")
         }
-        senao se(poderTotal >= 800)
+        senao se(poderTotal >= 5000)
         {
             escreva("Você é de semi primeiro nivel  ⚔️\n")
         }
-        senao se(poderTotal >= 500)
+        senao se(poderTotal >= 4000)
         {
             escreva("Você é grau 2  ⚔️\n")
         }
-         senao se(poderTotal >= 500)
+         senao se(poderTotal >= 3000)
         {
             escreva("Você é grau 3  ⚔️\n")
         }
