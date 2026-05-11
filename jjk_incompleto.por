@@ -13,6 +13,7 @@ programa
         cadeia expansao
         cadeia reversao
         cadeia resultado = ""
+        inteiro escolhas
 
         inteiro forca = 1
         inteiro velocidade = 1
@@ -27,34 +28,8 @@ programa
         inteiro quantidadeItens
         inteiro poderTotal
 
-        escreva("=== SIMULADOR JUJUTSU KAISEN ===\n\n")
 
-        escreva("Escolha sua escola:\n")
-        escreva("1 - Tokyo\n")
-        escreva("2 - Kyoto\n")
-        leia(escola)
-
-        se(escola == 1)
-        {
-            escreva("\nVocê entrou na escola de Tokyo,boa escolha 🔥\n")
-
-            forca += 5
-            velocidade += 5
-            resistencia += 5
-            jujutsu += 5
-        }
-        senao
-        {
-            escreva("\nVocê entrou na escola de Kyoto,pessima escolha ☠️\n")
-
-            forca -= 500
-            velocidade -= 500
-            resistencia -= 500
-            jujutsu -= 500
-        }
-
-        // TIPO
-        inteiro sorteTipo = u.sorteia(1,4)
+      inteiro sorteTipo = u.sorteia(1,4)
 
         escolha(sorteTipo)
         {
@@ -68,6 +43,8 @@ programa
 
             caso 2:
                 tipo = "Maldição"
+
+                escolhas == 1
 
                 jujutsu += 2000
                 forca -= 100
@@ -90,6 +67,64 @@ programa
                 resistencia +=100
                 pare
         }
+
+        escreva("=== SIMULADOR JUJUTSU KAISEN === \n\n")
+
+se (tipo == "Maldição") {
+
+    escreva("Você entrou automaticamente no time Maldições!\n")
+    escreva("O plano é selar Gojo e libertar Sukuna em 31 de outubro.\n")
+
+}
+
+senao {
+
+    escreva("Escolha seu time:\n")
+    escreva("1 - Time Maldições\n")
+    escreva("2 - Time Feiticeiros\n")
+
+    leia(escolhas)
+
+    se (escolhas == 1) {
+
+        escreva("Você entrou no time maldições!\n")
+        escreva("O plano é selar Gojo e libertar Sukuna em 31 de outubro.\n")
+
+    }
+
+    senao se (escolhas == 2) {
+
+        escreva("Escolha a unidade da escola:\n")
+        escreva("3 - Tokyo\n")
+        escreva("4 - Kyoto\n")
+
+        leia(escola)
+
+        se (escola == 3) {
+
+            escreva("\nVocê entrou na escola de Tokyo, boa escolha 🔥\n")
+
+            forca += 500
+            velocidade += 500
+            resistencia += 500
+            jujutsu += 500
+
+        }
+
+        senao se (escola == 4) {
+
+            escreva("\nVocê entrou na escola de Kyoto, péssima escolha ☠️\n")
+
+            forca -= 500
+            velocidade -= 500
+            resistencia -= 500
+            jujutsu -= 500
+
+        }
+
+    }
+
+}
 
     
         inteiro sorteEnergia = u.sorteia(1,10)
